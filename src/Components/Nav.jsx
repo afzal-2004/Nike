@@ -3,7 +3,7 @@ import { hamburger, Cross } from "../assets/icons";
 import { navLinks } from "../constants";
 import { useState } from "react";
 const Nav = () => {
-  const [OpenNav, setOpenNav] = useState(true);
+  const [OpenNav, setOpenNav] = useState(false);
 
   return (
     <>
