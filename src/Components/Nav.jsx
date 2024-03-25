@@ -1,7 +1,10 @@
 import { headerLogo } from "../assets/images";
-import { hamburger } from "../assets/icons";
+import { hamburger, Cross } from "../assets/icons";
 import { navLinks } from "../constants";
+import { useState } from "react";
 const Nav = () => {
+  const [OpenNav, setOpenNav] = useState(true);
+
   return (
     <>
       <header className=" padding-x py-8 absolute z-10 w-full">
@@ -22,9 +25,36 @@ const Nav = () => {
             ))}
           </ul>
           <div className="  visible sm:hidden">
-            <img src={hamburger} alt="hamBurger" width={25} height={25} />
+            {OpenNav ? (
+              <img
+                src={Cross}
+                alt="hamBurger"
+                width={25}
+                height={25}
+                onClick={() => setOpenNav(!OpenNav)}
+              />
+            ) : (
+              <img
+                src={hamburger}
+                alt="hamBurger"
+                width={25}
+                height={25}
+                onClick={() => setOpenNav(!OpenNav)}
+              />
+            )}
           </div>
         </nav>
+        {OpenNav && (
+          <>
+            <ul className="  bg-slate-100 absolute right-2 p-4   duration-300  ">
+              {navLinks.map((items, index) => (
+                <li key={index} className=" p-4">
+                  <a href={items.href}>{items.label}</a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </header>
     </>
   );
