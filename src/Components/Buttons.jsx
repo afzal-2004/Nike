@@ -24,7 +24,10 @@ export const ViewDetailbtn = ({ label }) => {
 export const LearnMore = () => {
   return (
     <>
-      <button className=" flex justify-center items-center px-7 py-4 border rounded-full text-lg  mt-5 ">
+      <button
+        onClick={() => console.log("click")}
+        className=" flex justify-center items-center px-7 py-4 border rounded-full text-lg  mt-5"
+      >
         Learn More
       </button>
     </>
